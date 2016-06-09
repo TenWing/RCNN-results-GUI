@@ -61,9 +61,6 @@ MainWindow::MainWindow(QWidget *parent)
     connect(_datasetName, SIGNAL(textChanged(QString)), this, SLOT(validateEnabler(QString)));
     connect(_datasetLocation, SIGNAL(textChanged(QString)), this, SLOT(validateEnabler(QString)));
     connect(_validateDataset, SIGNAL(clicked(bool)), this, SLOT(lockValidation()));
-
-    //TEST VALUES
-    _datasetLocation->setText("C:/Users/TenWing/Documents/Kingston/Egoshots-master/NataliaHighlights/");
 }
 
 MainWindow::~MainWindow()

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	
+	<!-- SIMPLE types -->
+	<xsd:attribute name="name" type="xsd:string"/>
+	<xsd:attribute name="url" type="xsd:string"/>
+	<xsd:attribute name="confidence" type="xsd:decimal"/>
+	<xsd:attribute name="xmin" type="xsd:decimal"/>
+	<xsd:attribute name="ymin" type="xsd:decimal"/>
+	<xsd:attribute name="width" type="xsd:decimal"/>
+	<xsd:attribute name="height" type="xsd:decimal"/>
+
+	<!-- BBOX type -->
+	<xsd:element name="bbox">
+		<xsd:complexType>
+			<xsd:attribute ref="xmin" use="required"/>
+			<xsd:attribute ref="ymin" use="required"/>
+			<xsd:attribute ref="width" use="required"/>
+			<xsd:attribute ref="height" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<!-- OBJECT type -->
+	<xsd:element name="object">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="bbox"/>
+			</xsd:sequence>
+			<xsd:attribute ref="name" use="required"/>
+			<xsd:attribute ref="confidence" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<!-- IMAGE type -->
+	<xsd:element name="image">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="object" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+			<xsd:attribute ref="url"/>
+		</xsd:complexType>
+	</xsd:element>		
+
+	<!-- ROOT -->
+	<xsd:element name="images" >
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="image" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>	
+	</xsd:element>
+
+</xsd:schema>

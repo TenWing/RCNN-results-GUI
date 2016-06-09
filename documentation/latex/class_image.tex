@@ -1,0 +1,84 @@
+\hypertarget{class_image}{}\section{Image Class Reference}
+\label{class_image}\index{Image@{Image}}
+
+
+The \hyperlink{class_image}{Image} class contains all the information about the objects in it etc.  
+
+
+
+
+{\ttfamily \#include $<$image.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_image_a02455aeac6921a752aee20d1697ca162}{Image} (std\+::string file\+Name)
+\begin{DoxyCompactList}\small\item\em Builds an \hyperlink{class_image}{Image} given a line divided into substrings. \end{DoxyCompactList}\item 
+void \hyperlink{class_image_a6f2d732f8c5c253a511d6bbbdaf6d64a}{add\+Object} (\hyperlink{class_object}{Object} object)
+\begin{DoxyCompactList}\small\item\em adds an object detected to this image \end{DoxyCompactList}\item 
+std\+::string \hyperlink{class_image_a6546fe9d1f1b8bd456370a64816d1e5f}{get\+File\+Name} ()
+\begin{DoxyCompactList}\small\item\em Accessor to the file name of the picture. \end{DoxyCompactList}\item 
+std\+::vector$<$ \hyperlink{class_object}{Object} $>$ \hyperlink{class_image_a4a981047292f47239383d6bbcd946b4d}{get\+Objects} ()\hypertarget{class_image_a4a981047292f47239383d6bbcd946b4d}{}\label{class_image_a4a981047292f47239383d6bbcd946b4d}
+
+\begin{DoxyCompactList}\small\item\em gets the objects detected in the picture \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{class_image}{Image} class contains all the information about the objects in it etc. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Image@{Image}!Image@{Image}}
+\index{Image@{Image}!Image@{Image}}
+\subsubsection[{\texorpdfstring{Image(std\+::string file\+Name)}{Image(std::string fileName)}}]{\setlength{\rightskip}{0pt plus 5cm}Image\+::\+Image (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{file\+Name}
+\end{DoxyParamCaption}
+)}\hypertarget{class_image_a02455aeac6921a752aee20d1697ca162}{}\label{class_image_a02455aeac6921a752aee20d1697ca162}
+
+
+Builds an \hyperlink{class_image}{Image} given a line divided into substrings. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & the name of the file that is the picture \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{Image@{Image}!add\+Object@{add\+Object}}
+\index{add\+Object@{add\+Object}!Image@{Image}}
+\subsubsection[{\texorpdfstring{add\+Object(\+Object object)}{addObject(Object object)}}]{\setlength{\rightskip}{0pt plus 5cm}void Image\+::add\+Object (
+\begin{DoxyParamCaption}
+\item[{{\bf Object}}]{object}
+\end{DoxyParamCaption}
+)}\hypertarget{class_image_a6f2d732f8c5c253a511d6bbbdaf6d64a}{}\label{class_image_a6f2d732f8c5c253a511d6bbbdaf6d64a}
+
+
+adds an object detected to this image 
+
+
+\begin{DoxyParams}{Parameters}
+{\em object} & th eobject added \\
+\hline
+\end{DoxyParams}
+\index{Image@{Image}!get\+File\+Name@{get\+File\+Name}}
+\index{get\+File\+Name@{get\+File\+Name}!Image@{Image}}
+\subsubsection[{\texorpdfstring{get\+File\+Name()}{getFileName()}}]{\setlength{\rightskip}{0pt plus 5cm}string Image\+::get\+File\+Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_image_a6546fe9d1f1b8bd456370a64816d1e5f}{}\label{class_image_a6546fe9d1f1b8bd456370a64816d1e5f}
+
+
+Accessor to the file name of the picture. 
+
+\begin{DoxyReturn}{Returns}
+a string giving the file name 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/image.\+h\item 
+src/image.\+cpp\end{DoxyCompactItemize}

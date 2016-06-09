@@ -1,0 +1,113 @@
+\hypertarget{class_image_widget}{}\section{Image\+Widget Class Reference}
+\label{class_image_widget}\index{Image\+Widget@{Image\+Widget}}
+
+
+The widget that draws the \hyperlink{class_image}{Image}.  
+
+
+
+
+{\ttfamily \#include $<$imagewidget.\+h$>$}
+
+Inheritance diagram for Image\+Widget\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_image_widget}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Image\+Widget} (Q\+Widget $\ast$parent=0)\hypertarget{class_image_widget_a29f5483569b0ac4abd6b25bb640f9250}{}\label{class_image_widget_a29f5483569b0ac4abd6b25bb640f9250}
+
+\item 
+void \hyperlink{class_image_widget_a0e3dfd9d7747707f659310b175629e5e}{set\+Results} (\hyperlink{class_results}{Results} $\ast$results)
+\begin{DoxyCompactList}\small\item\em sets the results once initiated \end{DoxyCompactList}\item 
+void \hyperlink{class_image_widget_ac41822f2c322b22eb62ac553011b0423}{load\+Image} (unsigned int i)
+\begin{DoxyCompactList}\small\item\em loads the image n°i in the results sets \end{DoxyCompactList}\item 
+void \hyperlink{class_image_widget_a10cd7197e52740e168ef5261aa16ca7a}{paint\+Bbox} ()\hypertarget{class_image_widget_a10cd7197e52740e168ef5261aa16ca7a}{}\label{class_image_widget_a10cd7197e52740e168ef5261aa16ca7a}
+
+\begin{DoxyCompactList}\small\item\em paints the \hyperlink{class_bbox}{Bbox} if some model names have been checked \end{DoxyCompactList}\item 
+void \hyperlink{class_image_widget_a774f0d94f4cd8a0ed0d7c8a30b20da56}{set\+Model\+Names} (std\+::map$<$ std\+::string, Q\+Color $>$ model\+Names)
+\begin{DoxyCompactList}\small\item\em sets the model names checked with their drawing color \end{DoxyCompactList}\item 
+void \hyperlink{class_image_widget_ae572ff8733d9ece83441a37e1b7a91ae}{erase\+Bbox} ()\hypertarget{class_image_widget_ae572ff8733d9ece83441a37e1b7a91ae}{}\label{class_image_widget_ae572ff8733d9ece83441a37e1b7a91ae}
+
+\begin{DoxyCompactList}\small\item\em erases everything that has been drawn \end{DoxyCompactList}\item 
+void \hyperlink{class_image_widget_a6180527a08974bc832d10deccc9e3737}{set\+Threshold} (double threshold)
+\begin{DoxyCompactList}\small\item\em the new threshold value \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The widget that draws the \hyperlink{class_image}{Image}. 
+
+\subsection{Member Function Documentation}
+\index{Image\+Widget@{Image\+Widget}!load\+Image@{load\+Image}}
+\index{load\+Image@{load\+Image}!Image\+Widget@{Image\+Widget}}
+\subsubsection[{\texorpdfstring{load\+Image(unsigned int i)}{loadImage(unsigned int i)}}]{\setlength{\rightskip}{0pt plus 5cm}void Image\+Widget\+::load\+Image (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{i}
+\end{DoxyParamCaption}
+)}\hypertarget{class_image_widget_ac41822f2c322b22eb62ac553011b0423}{}\label{class_image_widget_ac41822f2c322b22eb62ac553011b0423}
+
+
+loads the image n°i in the results sets 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & the index \\
+\hline
+\end{DoxyParams}
+\index{Image\+Widget@{Image\+Widget}!set\+Model\+Names@{set\+Model\+Names}}
+\index{set\+Model\+Names@{set\+Model\+Names}!Image\+Widget@{Image\+Widget}}
+\subsubsection[{\texorpdfstring{set\+Model\+Names(std\+::map$<$ std\+::string, Q\+Color $>$ model\+Names)}{setModelNames(std::map< std::string, QColor > modelNames)}}]{\setlength{\rightskip}{0pt plus 5cm}void Image\+Widget\+::set\+Model\+Names (
+\begin{DoxyParamCaption}
+\item[{std\+::map$<$ std\+::string, Q\+Color $>$}]{model\+Names}
+\end{DoxyParamCaption}
+)}\hypertarget{class_image_widget_a774f0d94f4cd8a0ed0d7c8a30b20da56}{}\label{class_image_widget_a774f0d94f4cd8a0ed0d7c8a30b20da56}
+
+
+sets the model names checked with their drawing color 
+
+
+\begin{DoxyParams}{Parameters}
+{\em model\+Names} & the model names + color \\
+\hline
+\end{DoxyParams}
+\index{Image\+Widget@{Image\+Widget}!set\+Results@{set\+Results}}
+\index{set\+Results@{set\+Results}!Image\+Widget@{Image\+Widget}}
+\subsubsection[{\texorpdfstring{set\+Results(\+Results $\ast$results)}{setResults(Results *results)}}]{\setlength{\rightskip}{0pt plus 5cm}void Image\+Widget\+::set\+Results (
+\begin{DoxyParamCaption}
+\item[{{\bf Results} $\ast$}]{results}
+\end{DoxyParamCaption}
+)}\hypertarget{class_image_widget_a0e3dfd9d7747707f659310b175629e5e}{}\label{class_image_widget_a0e3dfd9d7747707f659310b175629e5e}
+
+
+sets the results once initiated 
+
+
+\begin{DoxyParams}{Parameters}
+{\em results} & the results to be linked \\
+\hline
+\end{DoxyParams}
+\index{Image\+Widget@{Image\+Widget}!set\+Threshold@{set\+Threshold}}
+\index{set\+Threshold@{set\+Threshold}!Image\+Widget@{Image\+Widget}}
+\subsubsection[{\texorpdfstring{set\+Threshold(double threshold)}{setThreshold(double threshold)}}]{\setlength{\rightskip}{0pt plus 5cm}void Image\+Widget\+::set\+Threshold (
+\begin{DoxyParamCaption}
+\item[{double}]{threshold}
+\end{DoxyParamCaption}
+)}\hypertarget{class_image_widget_a6180527a08974bc832d10deccc9e3737}{}\label{class_image_widget_a6180527a08974bc832d10deccc9e3737}
+
+
+the new threshold value 
+
+
+\begin{DoxyParams}{Parameters}
+{\em threshold} & the threshold value \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/imagewidget.\+h\item 
+src/imagewidget.\+cpp\end{DoxyCompactItemize}

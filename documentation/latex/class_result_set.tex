@@ -1,0 +1,121 @@
+\hypertarget{class_result_set}{}\section{Result\+Set Class Reference}
+\label{class_result_set}\index{Result\+Set@{Result\+Set}}
+
+
+A results set holds the results of a detection with py-\/faster-\/rcnn in one picture, the results can be from multiple model operations.  
+
+
+
+
+{\ttfamily \#include $<$resultset.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_result_set_a9069cabfa19771579b8d3208729b426c}{Result\+Set} (std\+::string file\+Name)
+\begin{DoxyCompactList}\small\item\em Builds a \hyperlink{class_result_set}{Result\+Set}. \end{DoxyCompactList}\item 
+void \hyperlink{class_result_set_ad83bc3196f7a0c7e2052ad85a69c1cd3}{add\+Results} (std\+::string model\+Name, std\+::vector$<$ \hyperlink{class_object}{Object} $>$ results)
+\begin{DoxyCompactList}\small\item\em adds results of a detection on this picture \end{DoxyCompactList}\item 
+std\+::string \hyperlink{class_result_set_ac7ad652b95be850898dcfdcbc1c58261}{get\+File\+Name} () const 
+\begin{DoxyCompactList}\small\item\em getter file\+Name \end{DoxyCompactList}\item 
+std\+::vector$<$ \hyperlink{class_object}{Object} $>$ \hyperlink{class_result_set_a7f6c7ba55828add8fb3d1faf64ee8496}{objects} (std\+::string model\+Name) const 
+\begin{DoxyCompactList}\small\item\em gives the detected objects by a given model \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \hyperlink{class_result_set_a359649ed63e374f3bbba226bfeee67be}{model\+Names} () const 
+\begin{DoxyCompactList}\small\item\em gets all the model names \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A results set holds the results of a detection with py-\/faster-\/rcnn in one picture, the results can be from multiple model operations. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Result\+Set@{Result\+Set}!Result\+Set@{Result\+Set}}
+\index{Result\+Set@{Result\+Set}!Result\+Set@{Result\+Set}}
+\subsubsection[{\texorpdfstring{Result\+Set(std\+::string file\+Name)}{ResultSet(std::string fileName)}}]{\setlength{\rightskip}{0pt plus 5cm}Result\+Set\+::\+Result\+Set (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{file\+Name}
+\end{DoxyParamCaption}
+)}\hypertarget{class_result_set_a9069cabfa19771579b8d3208729b426c}{}\label{class_result_set_a9069cabfa19771579b8d3208729b426c}
+
+
+Builds a \hyperlink{class_result_set}{Result\+Set}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & the file name of the picture where the detection has been launched \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{Result\+Set@{Result\+Set}!add\+Results@{add\+Results}}
+\index{add\+Results@{add\+Results}!Result\+Set@{Result\+Set}}
+\subsubsection[{\texorpdfstring{add\+Results(std\+::string model\+Name, std\+::vector$<$ Object $>$ results)}{addResults(std::string modelName, std::vector< Object > results)}}]{\setlength{\rightskip}{0pt plus 5cm}void Result\+Set\+::add\+Results (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{model\+Name, }
+\item[{std\+::vector$<$ {\bf Object} $>$}]{results}
+\end{DoxyParamCaption}
+)}\hypertarget{class_result_set_ad83bc3196f7a0c7e2052ad85a69c1cd3}{}\label{class_result_set_ad83bc3196f7a0c7e2052ad85a69c1cd3}
+
+
+adds results of a detection on this picture 
+
+
+\begin{DoxyParams}{Parameters}
+{\em model\+Name} & the name of the model that produced the detections \\
+\hline
+{\em results} & the objects detected \\
+\hline
+\end{DoxyParams}
+\index{Result\+Set@{Result\+Set}!get\+File\+Name@{get\+File\+Name}}
+\index{get\+File\+Name@{get\+File\+Name}!Result\+Set@{Result\+Set}}
+\subsubsection[{\texorpdfstring{get\+File\+Name() const }{getFileName() const }}]{\setlength{\rightskip}{0pt plus 5cm}string Result\+Set\+::get\+File\+Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_result_set_ac7ad652b95be850898dcfdcbc1c58261}{}\label{class_result_set_ac7ad652b95be850898dcfdcbc1c58261}
+
+
+getter file\+Name 
+
+\begin{DoxyReturn}{Returns}
+a string 
+\end{DoxyReturn}
+\index{Result\+Set@{Result\+Set}!model\+Names@{model\+Names}}
+\index{model\+Names@{model\+Names}!Result\+Set@{Result\+Set}}
+\subsubsection[{\texorpdfstring{model\+Names() const }{modelNames() const }}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ string $>$ Result\+Set\+::model\+Names (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_result_set_a359649ed63e374f3bbba226bfeee67be}{}\label{class_result_set_a359649ed63e374f3bbba226bfeee67be}
+
+
+gets all the model names 
+
+\begin{DoxyReturn}{Returns}
+a vector of strings 
+\end{DoxyReturn}
+\index{Result\+Set@{Result\+Set}!objects@{objects}}
+\index{objects@{objects}!Result\+Set@{Result\+Set}}
+\subsubsection[{\texorpdfstring{objects(std\+::string model\+Name) const }{objects(std::string modelName) const }}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ {\bf Object} $>$ Result\+Set\+::objects (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{model\+Name}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_result_set_a7f6c7ba55828add8fb3d1faf64ee8496}{}\label{class_result_set_a7f6c7ba55828add8fb3d1faf64ee8496}
+
+
+gives the detected objects by a given model 
+
+
+\begin{DoxyParams}{Parameters}
+{\em model\+Name} & th ename of the model \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a vector of objects 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/resultset.\+h\item 
+src/resultset.\+cpp\end{DoxyCompactItemize}

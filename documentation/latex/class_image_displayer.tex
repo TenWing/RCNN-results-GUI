@@ -1,0 +1,86 @@
+\hypertarget{class_image_displayer}{}\section{Image\+Displayer Class Reference}
+\label{class_image_displayer}\index{Image\+Displayer@{Image\+Displayer}}
+
+
+Containing widget to display the image, and the options to see the results od detection in it.  
+
+
+
+
+{\ttfamily \#include $<$imagedisplayer.\+h$>$}
+
+Inheritance diagram for Image\+Displayer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_image_displayer}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_image_displayer_a9a57980fbe20b55a59f3c189275c3f47}{next\+Image} ()\hypertarget{class_image_displayer_a9a57980fbe20b55a59f3c189275c3f47}{}\label{class_image_displayer_a9a57980fbe20b55a59f3c189275c3f47}
+
+\begin{DoxyCompactList}\small\item\em Goes to the next image and loop back to 1st when at the end. \end{DoxyCompactList}\item 
+void \hyperlink{class_image_displayer_a32b7d20ab0b8959fd08580a2855ff74f}{prev\+Image} ()\hypertarget{class_image_displayer_a32b7d20ab0b8959fd08580a2855ff74f}{}\label{class_image_displayer_a32b7d20ab0b8959fd08580a2855ff74f}
+
+\begin{DoxyCompactList}\small\item\em prev\+Image Goes to previous image and loop to the end when 1st reached \end{DoxyCompactList}\item 
+void \hyperlink{class_image_displayer_a34877e02ed6399153428be9ba4c9474a}{update\+Slider\+Value} (int int\+Value)
+\begin{DoxyCompactList}\small\item\em updates the slider\textquotesingle{}s value \end{DoxyCompactList}\item 
+void \hyperlink{class_image_displayer_acb3df03f56e022a8814484923594a916}{go\+To\+File} ()\hypertarget{class_image_displayer_acb3df03f56e022a8814484923594a916}{}\label{class_image_displayer_acb3df03f56e022a8814484923594a916}
+
+\begin{DoxyCompactList}\small\item\em goes to a file chosen by the user \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Image\+Displayer} (Q\+Widget $\ast$parent=0)\hypertarget{class_image_displayer_ab368441dea5815d4c623744599d9761f}{}\label{class_image_displayer_ab368441dea5815d4c623744599d9761f}
+
+\item 
+void \hyperlink{class_image_displayer_a57a0e59aec7694beac57bbf667fe46a3}{set\+Results} (\hyperlink{class_results}{Results} $\ast$results)
+\begin{DoxyCompactList}\small\item\em sets the results sets of the image displayer \end{DoxyCompactList}\item 
+void \hyperlink{class_image_displayer_a3b9b38db521f0355d54f7bb90c1b4006}{fetch\+Images} ()\hypertarget{class_image_displayer_a3b9b38db521f0355d54f7bb90c1b4006}{}\label{class_image_displayer_a3b9b38db521f0355d54f7bb90c1b4006}
+
+\begin{DoxyCompactList}\small\item\em The displayer fetches his results to update the images displayed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Containing widget to display the image, and the options to see the results od detection in it. 
+
+\subsection{Member Function Documentation}
+\index{Image\+Displayer@{Image\+Displayer}!set\+Results@{set\+Results}}
+\index{set\+Results@{set\+Results}!Image\+Displayer@{Image\+Displayer}}
+\subsubsection[{\texorpdfstring{set\+Results(\+Results $\ast$results)}{setResults(Results *results)}}]{\setlength{\rightskip}{0pt plus 5cm}void Image\+Displayer\+::set\+Results (
+\begin{DoxyParamCaption}
+\item[{{\bf Results} $\ast$}]{results}
+\end{DoxyParamCaption}
+)}\hypertarget{class_image_displayer_a57a0e59aec7694beac57bbf667fe46a3}{}\label{class_image_displayer_a57a0e59aec7694beac57bbf667fe46a3}
+
+
+sets the results sets of the image displayer 
+
+
+\begin{DoxyParams}{Parameters}
+{\em results} & the results to be set \\
+\hline
+\end{DoxyParams}
+\index{Image\+Displayer@{Image\+Displayer}!update\+Slider\+Value@{update\+Slider\+Value}}
+\index{update\+Slider\+Value@{update\+Slider\+Value}!Image\+Displayer@{Image\+Displayer}}
+\subsubsection[{\texorpdfstring{update\+Slider\+Value}{updateSliderValue}}]{\setlength{\rightskip}{0pt plus 5cm}void Image\+Displayer\+::update\+Slider\+Value (
+\begin{DoxyParamCaption}
+\item[{int}]{int\+Value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\hypertarget{class_image_displayer_a34877e02ed6399153428be9ba4c9474a}{}\label{class_image_displayer_a34877e02ed6399153428be9ba4c9474a}
+
+
+updates the slider\textquotesingle{}s value 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int\+Value} & the value from 0 to 100 to be converted to float \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/imagedisplayer.\+h\item 
+src/imagedisplayer.\+cpp\end{DoxyCompactItemize}

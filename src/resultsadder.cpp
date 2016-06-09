@@ -45,9 +45,6 @@ ResultsAdder::ResultsAdder(ImageDisplayer* displayer, QWidget *parent) :
     connect(_modelName, SIGNAL(textChanged(QString)), this, SLOT(unlockValidate()));
     connect(_xmlFile, SIGNAL(textChanged(QString)), this, SLOT(unlockValidate()));
     connect(_addResultsButton, SIGNAL(clicked(bool)), this, SLOT(loadXML()));
-
-    //TEST VALUES
-    _xmlFile->setText("C:/Users/TenWing/Documents/Kingston/XML/XML_output/natalia_imagenet.xml");
 }
 
 ResultsAdder::~ResultsAdder()

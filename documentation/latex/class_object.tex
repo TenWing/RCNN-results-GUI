@@ -1,0 +1,101 @@
+\hypertarget{class_object}{}\section{Object Class Reference}
+\label{class_object}\index{Object@{Object}}
+
+
+An object in a picture.  
+
+
+
+
+{\ttfamily \#include $<$image.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_object_ab3e642ef6f10a138adc9d519979d2944}{Object} (std\+::string label, double confidence, \hyperlink{class_bbox}{Bbox} bbox)
+\begin{DoxyCompactList}\small\item\em Builds an object with his label and the bounding box around him. \end{DoxyCompactList}\item 
+\hyperlink{class_bbox}{Bbox} \hyperlink{class_object_a8fde7ce6bc7c391ff9b87b3557c9bb80}{get\+Bbox} ()
+\begin{DoxyCompactList}\small\item\em getter of the \hyperlink{class_bbox}{Bbox} of the object \end{DoxyCompactList}\item 
+std\+::string \hyperlink{class_object_a269462ff63fbdb49c1072936b13146a4}{get\+Label} ()
+\begin{DoxyCompactList}\small\item\em getter to the label of the object \end{DoxyCompactList}\item 
+double \hyperlink{class_object_aa49a09c5b33126340f35eb4ecc0ebf96}{get\+Confidence} ()
+\begin{DoxyCompactList}\small\item\em getter to the confidence of this object in the picture \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+An object in a picture. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Object@{Object}!Object@{Object}}
+\index{Object@{Object}!Object@{Object}}
+\subsubsection[{\texorpdfstring{Object(std\+::string label, double confidence, Bbox bbox)}{Object(std::string label, double confidence, Bbox bbox)}}]{\setlength{\rightskip}{0pt plus 5cm}Object\+::\+Object (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{label, }
+\item[{double}]{confidence, }
+\item[{{\bf Bbox}}]{bbox}
+\end{DoxyParamCaption}
+)}\hypertarget{class_object_ab3e642ef6f10a138adc9d519979d2944}{}\label{class_object_ab3e642ef6f10a138adc9d519979d2944}
+
+
+Builds an object with his label and the bounding box around him. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em label} & the name of the object \\
+\hline
+{\em confidence} & the confidence score of detection \\
+\hline
+{\em bbox} & the bounding box around the object \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{Object@{Object}!get\+Bbox@{get\+Bbox}}
+\index{get\+Bbox@{get\+Bbox}!Object@{Object}}
+\subsubsection[{\texorpdfstring{get\+Bbox()}{getBbox()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Bbox} Object\+::get\+Bbox (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_object_a8fde7ce6bc7c391ff9b87b3557c9bb80}{}\label{class_object_a8fde7ce6bc7c391ff9b87b3557c9bb80}
+
+
+getter of the \hyperlink{class_bbox}{Bbox} of the object 
+
+\begin{DoxyReturn}{Returns}
+the \hyperlink{class_bbox}{Bbox} of the object 
+\end{DoxyReturn}
+\index{Object@{Object}!get\+Confidence@{get\+Confidence}}
+\index{get\+Confidence@{get\+Confidence}!Object@{Object}}
+\subsubsection[{\texorpdfstring{get\+Confidence()}{getConfidence()}}]{\setlength{\rightskip}{0pt plus 5cm}double Object\+::get\+Confidence (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_object_aa49a09c5b33126340f35eb4ecc0ebf96}{}\label{class_object_aa49a09c5b33126340f35eb4ecc0ebf96}
+
+
+getter to the confidence of this object in the picture 
+
+\begin{DoxyReturn}{Returns}
+a float value 
+\end{DoxyReturn}
+\index{Object@{Object}!get\+Label@{get\+Label}}
+\index{get\+Label@{get\+Label}!Object@{Object}}
+\subsubsection[{\texorpdfstring{get\+Label()}{getLabel()}}]{\setlength{\rightskip}{0pt plus 5cm}string Object\+::get\+Label (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_object_a269462ff63fbdb49c1072936b13146a4}{}\label{class_object_a269462ff63fbdb49c1072936b13146a4}
+
+
+getter to the label of the object 
+
+\begin{DoxyReturn}{Returns}
+a string 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/image.\+h\item 
+src/image.\+cpp\end{DoxyCompactItemize}

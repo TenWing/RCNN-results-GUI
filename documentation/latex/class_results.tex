@@ -1,0 +1,142 @@
+\hypertarget{class_results}{}\section{Results Class Reference}
+\label{class_results}\index{Results@{Results}}
+
+
+The \hyperlink{class_results}{Results} contains all the results sets on an entire dataset.  
+
+
+
+
+{\ttfamily \#include $<$resultset.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_results_ac627f746e9b1f266c663e7f0c9ff0e6b}{Results} (std\+::string dataset)
+\begin{DoxyCompactList}\small\item\em Builds the results. \end{DoxyCompactList}\item 
+int \hyperlink{class_results_a34dbd962a31ef9a2e6fddce10ffc5b0e}{add\+Results} (std\+::string name, std\+::vector$<$ \hyperlink{class_image}{Image} $>$ images)
+\begin{DoxyCompactList}\small\item\em add results given by an X\+ML file of detection to this dataset \end{DoxyCompactList}\item 
+unsigned int \hyperlink{class_results_a61a442d7f227eec1c3be0f883c414f55}{results\+Size} ()
+\begin{DoxyCompactList}\small\item\em returns the amount of pictures in the dataset \end{DoxyCompactList}\item 
+const \hyperlink{class_result_set}{Result\+Set} \& \hyperlink{class_results_aa4924bf9220fbe2bc4316a28eff84b46}{result\+Set} (unsigned int i)
+\begin{DoxyCompactList}\small\item\em Accessor to view a specific resultset. \end{DoxyCompactList}\item 
+void \hyperlink{class_results_ab743b3785706d824fd7fcbfe4bffe7d2}{set\+Location} (std\+::string location)
+\begin{DoxyCompactList}\small\item\em sets the location of the dataset \end{DoxyCompactList}\item 
+std\+::string \hyperlink{class_results_af7e610ff1860b13d382bef3746aa9603}{dataset\+Location} ()
+\begin{DoxyCompactList}\small\item\em get the folder string where the pictures are \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{class_results}{Results} contains all the results sets on an entire dataset. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Results@{Results}!Results@{Results}}
+\index{Results@{Results}!Results@{Results}}
+\subsubsection[{\texorpdfstring{Results(std\+::string dataset)}{Results(std::string dataset)}}]{\setlength{\rightskip}{0pt plus 5cm}Results\+::\+Results (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{dataset}
+\end{DoxyParamCaption}
+)}\hypertarget{class_results_ac627f746e9b1f266c663e7f0c9ff0e6b}{}\label{class_results_ac627f746e9b1f266c663e7f0c9ff0e6b}
+
+
+Builds the results. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dataset} & the dataset that has been processed \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{Results@{Results}!add\+Results@{add\+Results}}
+\index{add\+Results@{add\+Results}!Results@{Results}}
+\subsubsection[{\texorpdfstring{add\+Results(std\+::string name, std\+::vector$<$ Image $>$ images)}{addResults(std::string name, std::vector< Image > images)}}]{\setlength{\rightskip}{0pt plus 5cm}int Results\+::add\+Results (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{name, }
+\item[{std\+::vector$<$ {\bf Image} $>$}]{images}
+\end{DoxyParamCaption}
+)}\hypertarget{class_results_a34dbd962a31ef9a2e6fddce10ffc5b0e}{}\label{class_results_a34dbd962a31ef9a2e6fddce10ffc5b0e}
+
+
+add results given by an X\+ML file of detection to this dataset 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & the name of the model who produced the results \\
+\hline
+{\em images} & the results of the detection \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if success else its an error code 
+\end{DoxyReturn}
+\index{Results@{Results}!dataset\+Location@{dataset\+Location}}
+\index{dataset\+Location@{dataset\+Location}!Results@{Results}}
+\subsubsection[{\texorpdfstring{dataset\+Location()}{datasetLocation()}}]{\setlength{\rightskip}{0pt plus 5cm}string Results\+::dataset\+Location (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_results_af7e610ff1860b13d382bef3746aa9603}{}\label{class_results_af7e610ff1860b13d382bef3746aa9603}
+
+
+get the folder string where the pictures are 
+
+\begin{DoxyReturn}{Returns}
+a std string 
+\end{DoxyReturn}
+\index{Results@{Results}!result\+Set@{result\+Set}}
+\index{result\+Set@{result\+Set}!Results@{Results}}
+\subsubsection[{\texorpdfstring{result\+Set(unsigned int i)}{resultSet(unsigned int i)}}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Result\+Set} \& Results\+::result\+Set (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{i}
+\end{DoxyParamCaption}
+)}\hypertarget{class_results_aa4924bf9220fbe2bc4316a28eff84b46}{}\label{class_results_aa4924bf9220fbe2bc4316a28eff84b46}
+
+
+Accessor to view a specific resultset. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & the index of accession \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a constant reference to a result set (read only) 
+\end{DoxyReturn}
+\index{Results@{Results}!results\+Size@{results\+Size}}
+\index{results\+Size@{results\+Size}!Results@{Results}}
+\subsubsection[{\texorpdfstring{results\+Size()}{resultsSize()}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Results\+::results\+Size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_results_a61a442d7f227eec1c3be0f883c414f55}{}\label{class_results_a61a442d7f227eec1c3be0f883c414f55}
+
+
+returns the amount of pictures in the dataset 
+
+\begin{DoxyReturn}{Returns}
+an integer 
+\end{DoxyReturn}
+\index{Results@{Results}!set\+Location@{set\+Location}}
+\index{set\+Location@{set\+Location}!Results@{Results}}
+\subsubsection[{\texorpdfstring{set\+Location(std\+::string location)}{setLocation(std::string location)}}]{\setlength{\rightskip}{0pt plus 5cm}void Results\+::set\+Location (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{location}
+\end{DoxyParamCaption}
+)}\hypertarget{class_results_ab743b3785706d824fd7fcbfe4bffe7d2}{}\label{class_results_ab743b3785706d824fd7fcbfe4bffe7d2}
+
+
+sets the location of the dataset 
+
+
+\begin{DoxyParams}{Parameters}
+{\em location} & the new location \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/resultset.\+h\item 
+src/resultset.\+cpp\end{DoxyCompactItemize}
