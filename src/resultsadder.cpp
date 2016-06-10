@@ -10,13 +10,16 @@
 #include <vector>
 
 #include <QMessageBox>
+#include <QFileDialog>
 
 using namespace std;
 
 ResultsAdder::ResultsAdder(ImageDisplayer* displayer, QWidget *parent) :
-    QWidget(parent), _loader(), _results(nullptr), _displayer(displayer),
+    QWidget(parent), _loader(), _results(nullptr), _xmlFile(), _displayer(displayer),
     _modelName(new QLineEdit(this)),
-    _xmlFile(new QLineEdit(this)), _addResultsButton(new QPushButton("Add results",this))
+    _xmlFileBrowser(new QPushButton(" Browse XML file ", this)),
+    _xmlLabel(new QLabel("No file selected", this)),
+    _addResultsButton(new QPushButton("Add results",this))
 {
     QVBoxLayout* mainLayout = new QVBoxLayout();
     QHBoxLayout* middleLayout = new QHBoxLayout();
@@ -25,15 +28,14 @@ ResultsAdder::ResultsAdder(ImageDisplayer* displayer, QWidget *parent) :
     QLabel* title = new QLabel("Adding detection results to dataset", this);
     QLabel* modelLabel = new QLabel("Model name :", this);
     _modelName->setEnabled(false);
-    QLabel* xmlLabel = new QLabel("Results XML :", this);
-    _xmlFile->setEnabled(false);
+    _xmlFileBrowser->setEnabled(false);
     _addResultsButton->setEnabled(false);
 
     middleLayout->addWidget(modelLabel);
     middleLayout->addWidget(_modelName);
     middleLayout->addSpacerItem(new QSpacerItem(25,1));
-    middleLayout->addWidget(xmlLabel);
-    middleLayout->addWidget(_xmlFile);
+    middleLayout->addWidget(_xmlFileBrowser);
+    middleLayout->addWidget(_xmlLabel);
 
     mainLayout->addWidget(title);
     mainLayout->setAlignment(title, Qt::AlignHCenter);
@@ -43,7 +45,7 @@ ResultsAdder::ResultsAdder(ImageDisplayer* displayer, QWidget *parent) :
     setLayout(mainLayout);
 
     connect(_modelName, SIGNAL(textChanged(QString)), this, SLOT(unlockValidate()));
-    connect(_xmlFile, SIGNAL(textChanged(QString)), this, SLOT(unlockValidate()));
+    connect(_xmlFileBrowser, SIGNAL(clicked(bool)), this, SLOT(searchXML()));
     connect(_addResultsButton, SIGNAL(clicked(bool)), this, SLOT(loadXML()));
 }
 
@@ -60,12 +62,12 @@ void ResultsAdder::setResults(Results *results)
 void ResultsAdder::unlock()
 {
     _modelName->setEnabled(true);
-    _xmlFile->setEnabled(true);
+    _xmlFileBrowser->setEnabled(true);
 }
 
 void ResultsAdder::unlockValidate()
 {
-    if(_modelName->text().size() != 0 && _xmlFile->text().size() != 0)
+    if(_modelName->text().size() != 0)
         _addResultsButton->setEnabled(true);
     else
         _addResultsButton->setEnabled(false);
@@ -73,6 +75,16 @@ void ResultsAdder::unlockValidate()
 
 void ResultsAdder::loadXML()
 {
+    if(_xmlFile.size() == 0)
+    {
+        QMessageBox box(this);
+        box.setText("You have to choose a XML file !");
+        box.setWindowTitle("Error happened");
+        box.exec();
+
+        return;
+    }
+
     vector<Image> images;
 
     if(_results->resultsSize() != 0)
@@ -93,7 +105,7 @@ void ResultsAdder::loadXML()
 
     try
     {
-        images = _loader.loadImages(_xmlFile->text().toStdString());
+        images = _loader.loadImages(_xmlFile.toStdString());
         _results->addResults(_modelName->text().toStdString(), images);
         _displayer->fetchImages();
     }
@@ -104,4 +116,14 @@ void ResultsAdder::loadXML()
         box.setWindowTitle("Error happened");
         box.exec();
     }
+}
+
+void ResultsAdder::searchXML()
+{
+    _xmlFile = QFileDialog::getOpenFileName(this,
+                                            tr("Open XML results"),
+                                            "",
+                                            tr("XML Files (*.xml)"));
+    QStringList list = _xmlFile.split("/");
+    _xmlLabel->setText(list.value(list.length()-1));
 }

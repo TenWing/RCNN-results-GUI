@@ -9,12 +9,14 @@
 #include <QLineEdit>
 #include <QPushButton>
 #include <QSpacerItem>
+#include <QFileDialog>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), _results(nullptr),
       _imageDisplayer(new ImageDisplayer(this)), _resultsAdder(new ResultsAdder(_imageDisplayer, this)),
       _validateDataset(new QPushButton("Validate", this)), _datasetName(new QLineEdit(this)),
-      _datasetLocation(new QLineEdit(this))
+      _browseFolder(new QPushButton("Browse folder location of the dataset", this)),
+      _folder(new QLabel("No folder selected", this))
 {
     setGeometry(100,100,800,600);
     setCentralWidget(new QWidget(this));
@@ -25,30 +27,27 @@ MainWindow::MainWindow(QWidget *parent)
     QWidget* topWidget = new QWidget();
     QWidget* leftWidget = new QWidget();
     QWidget* datasetWidget = new QWidget();
-    QWidget* locationWidget = new QWidget();
     QHBoxLayout* datasetNameLayout = new QHBoxLayout();
-    QHBoxLayout* locationLayout = new QHBoxLayout();
     QHBoxLayout* topLayout = new QHBoxLayout();
     QVBoxLayout* datasetLayout = new QVBoxLayout();
     QLabel* datasetTitle = new QLabel("Dataset Information", this);
     QLabel* datasetLabel = new QLabel("Name :",this);
     _validateDataset->setEnabled(false);
-    QLabel* locationLabel = new QLabel("Location :",this);
+    _browseFolder->setEnabled(false);
+    connect(_browseFolder, SIGNAL(clicked(bool)), this, SLOT(searchFolder()));
 
     leftWidget->setLayout(datasetLayout);
     datasetLayout->addWidget(datasetTitle);
     datasetLayout->setAlignment(datasetTitle, Qt::AlignHCenter);
     datasetLayout->addWidget(datasetWidget);
-    datasetLayout->addWidget(locationWidget);
+    datasetLayout->addWidget(_browseFolder);
+    datasetLayout->addWidget(_folder);
+    datasetLayout->setAlignment(_folder, Qt::AlignHCenter);
 
     datasetWidget->setLayout(datasetNameLayout);
     datasetNameLayout->addWidget(datasetLabel);
     datasetNameLayout->addWidget(_datasetName);
     datasetNameLayout->addWidget(_validateDataset);
-
-    locationWidget->setLayout(locationLayout);
-    locationLayout->addWidget(locationLabel);
-    locationLayout->addWidget(_datasetLocation);
 
     topLayout->addWidget(leftWidget);
     topLayout->addSpacerItem(new QSpacerItem(100,0));
@@ -59,7 +58,6 @@ MainWindow::MainWindow(QWidget *parent)
     mainLayout->addWidget(_imageDisplayer);
 
     connect(_datasetName, SIGNAL(textChanged(QString)), this, SLOT(validateEnabler(QString)));
-    connect(_datasetLocation, SIGNAL(textChanged(QString)), this, SLOT(validateEnabler(QString)));
     connect(_validateDataset, SIGNAL(clicked(bool)), this, SLOT(lockValidation()));
 }
 
@@ -70,7 +68,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::validateEnabler(QString data)
 {
-    if(_datasetName->text().size() != 0 && _datasetLocation->text().size() != 0)
+    if(data.size())
         _validateDataset->setEnabled(true);
     else
         _validateDataset->setEnabled(false);
@@ -78,12 +76,27 @@ void MainWindow::validateEnabler(QString data)
 
 void MainWindow::lockValidation()
 {
+    _browseFolder->setEnabled(true);
     _validateDataset->setEnabled(false);
     _datasetName->setEnabled(false);
-    _datasetLocation->setEnabled(false);
     _results = new Results(_datasetName->text().toStdString());
-    _results->setLocation(_datasetLocation->text().toStdString());
     _resultsAdder->setResults(_results);
     _imageDisplayer->setResults(_results);
     _resultsAdder->unlock();
+}
+
+void MainWindow::searchFolder()
+{
+    QString directory =
+            QFileDialog::getExistingDirectory(this,
+                                              tr("Open Directory"),"",
+                                              QFileDialog::ShowDirsOnly |
+                                              QFileDialog::DontResolveSymlinks);
+
+    if(directory.size() != 0)
+    {
+        _results->setLocation(directory.toStdString());
+        QStringList list = directory.split("/");
+        _folder->setText("[...]/"+list.value(list.length()-1));
+    }
 }

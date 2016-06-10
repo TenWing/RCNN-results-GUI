@@ -5,6 +5,7 @@
 
 #include <QPushButton>
 #include <QLineEdit>
+#include <QLabel>
 
 #include <resultset.h>
 #include <resultsadder.h>
@@ -30,6 +31,11 @@ class MainWindow : public QMainWindow
          * @brief When the dataset has been named it is locked
          */
         void lockValidation();
+
+        /**
+         * @brief searches the folder of the dataset using a QFileDialog
+         */
+        void searchFolder();
 
     private:
 
@@ -59,9 +65,14 @@ class MainWindow : public QMainWindow
         QLineEdit* _datasetName;
 
         /**
-         * @brief field to enter the dataset location
+         * @brief button to browse the dataset location
          */
-        QLineEdit* _datasetLocation;
+        QPushButton* _browseFolder;
+
+        /**
+         * @brief the folder chosen
+         */
+        QLabel* _folder;
 };
 
 #endif // MAINWINDOW_H

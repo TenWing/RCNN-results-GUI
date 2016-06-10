@@ -46,6 +46,11 @@ class ResultsAdder : public QWidget
          */
         void loadXML();
 
+        /**
+         * @brief browse the files to search the XML result file
+         */
+        void searchXML();
+
     private:
 
         /**
@@ -59,6 +64,11 @@ class ResultsAdder : public QWidget
         Results* _results;
 
         /**
+         * @brief the xml file for the results
+         */
+        QString _xmlFile;
+
+        /**
          * @brief the image displayer
          */
         ImageDisplayer* _displayer;
@@ -69,9 +79,14 @@ class ResultsAdder : public QWidget
         QLineEdit* _modelName;
 
         /**
-         * @brief The xml file containing the results
+         * @brief button to browse the xml results file
          */
-        QLineEdit* _xmlFile;
+        QPushButton* _xmlFileBrowser;
+
+        /**
+         * @brief displays the xml file chosen
+         */
+        QLabel* _xmlLabel;
 
         /**
          * @brief validation button for loading

@@ -160,8 +160,6 @@ void ImageDisplayer::changeImage()
         box.setWindowTitle("Error happened");
         box.setText(error);
         box.exec();
-
-        exit(0);
     }
 }
 

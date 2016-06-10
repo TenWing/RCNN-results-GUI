@@ -29,12 +29,12 @@ void ImageWidget::setResults(Results *results)
 void ImageWidget::loadImage(unsigned int i)
 {
     _index = i;
-    QString fileName = QString::fromStdString(_results->datasetLocation()) + QString::fromStdString(_results->resultSet(i).getFileName());
+    QString fileName = QString::fromStdString(_results->datasetLocation()) + "/" + QString::fromStdString(_results->resultSet(i).getFileName());
     _fileName->setText(QString::fromStdString(_results->resultSet(i).getFileName()));
     _image = QImage(fileName);
 
     if(_image.isNull())
-        throw "Error while opening Picture\nMaybe you entered a wrong dataset location\nPath like : Path/to/pictures/";
+        throw "Error while opening Picture\nMaybe you did not choose the right folder";
 
     QImage scaled = _image.scaled(500,400,Qt::KeepAspectRatio);
     _displayer->setPixmap(QPixmap::fromImage(scaled));
