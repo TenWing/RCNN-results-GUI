@@ -1,4 +1,4 @@
-# RCNN-results-GUI
+# RCNN-results-GUI ![logo](wikiPictures/logo_min.png)
 ![snapshot](wikiPictures/snapshot.png)
 
 GUI to show results of detection using py-faster-rcnn on pictures, the results must have been converted to XML format
@@ -20,10 +20,6 @@ You **DON'T** need to install TinyXML2 (code included in the project)
 Open the .pro file then just build the project and run it (Ctrl + B / Ctrl + R)
 
 ## Tutorial
-
-![Step 1](wikiPictures/tutorial1.png)
-![Step 2](wikiPictures/tutorial2.png)
-![Done](wikiPictures/tutorial3.png)
 
 You can now play with the threshold to filter the objects detected
 
