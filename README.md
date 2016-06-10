@@ -1,5 +1,7 @@
 # RCNN-results-GUI
-GUI to show results of detection using py-faster-rcnn on pictures, the results must have been converted to XML format.
+![snapshot](wikiPictures/snapshot.png)
+
+GUI to show results of detection using py-faster-rcnn on pictures, the results must have been converted to XML format
 
 The project is currently in a : "work in progress" status, I'm woriking on it to make the GUI more user friendly
 
