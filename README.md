@@ -21,6 +21,20 @@ Open the .pro file then just build the project and run it (Ctrl + B / Ctrl + R)
 
 ## Tutorial
 
+### Step 1
+
+![Step1](wikiPictures/v2/tutorial1.png)
+
+### Step 2
+
+![Step2](wikiPictures/v2/tutorial2.png)
+
+### Step 3
+
+![Step3](wikiPictures/v2/tutorial3.png)
+
 You can now play with the threshold to filter the objects detected
 
 You can also compare the results of two different RCNN models
+
+To add new RCNN results to compare, just re-do step 2 !
