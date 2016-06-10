@@ -1,4 +1,7 @@
-# RCNN-results-GUI ![logo](wikiPictures/logo_min.png)
+# RCNN-results-GUI 
+
+![logo](wikiPictures/logo_min.png) 
+
 ![snapshot](wikiPictures/snapshot.png)
 
 GUI to show results of detection using py-faster-rcnn on pictures, the results must have been converted to XML format
