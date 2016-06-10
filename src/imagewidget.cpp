@@ -86,8 +86,11 @@ void ImageWidget::setModelNames(std::map<string, QColor> modelNames)
 void ImageWidget::eraseBbox()
 {
     _modelNames.clear();
-    QImage scaled = _image.scaled(500,400,Qt::KeepAspectRatio);
-    _displayer->setPixmap(QPixmap::fromImage(scaled));
+    if(!_image.isNull())
+    {
+        QImage scaled = _image.scaled(500,400,Qt::KeepAspectRatio);
+        _displayer->setPixmap(QPixmap::fromImage(scaled));
+    }
 }
 
 void ImageWidget::setThreshold(double threshold)

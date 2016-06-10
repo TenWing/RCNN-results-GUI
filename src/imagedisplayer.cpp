@@ -18,7 +18,9 @@ ImageDisplayer::ImageDisplayer(QWidget *parent) :
     _fileIndexCurrent(new QLabel("1", this)),
     _fileIndexTotal(new QLabel("1", this)), _nextButton(new QPushButton(">", this)),
     _prevButton(new QPushButton("<", this)), _sliderValue(new QLabel("0", this)),
-    _goTo(new QPushButton("Go to file", this)), _fileChoose(new QLineEdit(this))
+    _slider(new QSlider(Qt::Horizontal ,this)),
+    _goTo(new QPushButton("Go to file", this)), _fileChoose(new QLineEdit(this)),
+    _locked(false)
 {
     QHBoxLayout* mainLayout = new QHBoxLayout();
     setLayout(mainLayout);
@@ -29,15 +31,14 @@ ImageDisplayer::ImageDisplayer(QWidget *parent) :
 
     QLabel* boxOptions = new QLabel("Display Bboxes", this);
 
-    QSlider* slider = new QSlider(Qt::Horizontal ,this);
-    slider->setRange(0,100);
+    _slider->setRange(0,100);
     QWidget* sliderWidget = new QWidget(this);
     QHBoxLayout* sliderLayout = new QHBoxLayout();
     QLabel* sliderInfo = new QLabel("Threshold of confidence", this);
     sliderWidget->setLayout(sliderLayout);
-    sliderLayout->addWidget(slider);
+    sliderLayout->addWidget(_slider);
     sliderLayout->addWidget(_sliderValue);
-    connect(slider, SIGNAL(sliderMoved(int)), this, SLOT(updateSliderValue(int)));
+    connect(_slider, SIGNAL(sliderMoved(int)), this, SLOT(updateSliderValue(int)));
 
     QWidget* fileIndex = new QWidget(this);
     QHBoxLayout* fileIndexLayout = new QHBoxLayout();
@@ -51,7 +52,6 @@ ImageDisplayer::ImageDisplayer(QWidget *parent) :
 
     QWidget* goToWidget = new QWidget();
     QHBoxLayout* goToLayout = new QHBoxLayout();
-    _goTo->setEnabled(false);
     goToWidget->setLayout(goToLayout);
     goToLayout->addWidget(_goTo);
     goToLayout->addWidget(_fileChoose);
@@ -62,8 +62,6 @@ ImageDisplayer::ImageDisplayer(QWidget *parent) :
     buttons->setLayout(buttonsLayout);
     buttonsLayout->addWidget(_prevButton);
     buttonsLayout->addWidget(_nextButton);
-    _nextButton->setEnabled(false);
-    _prevButton->setEnabled(false);
     connect(_nextButton, SIGNAL(clicked(bool)), this, SLOT(nextImage()));
     connect(_prevButton, SIGNAL(clicked(bool)), this, SLOT(prevImage()));
 
@@ -79,6 +77,8 @@ ImageDisplayer::ImageDisplayer(QWidget *parent) :
 
     mainLayout->addWidget(_imageWidget);
     mainLayout->addWidget(rightWidget);
+
+    lock();
 }
 
 ImageDisplayer::~ImageDisplayer()
@@ -100,11 +100,7 @@ void ImageDisplayer::fetchImages()
 
     _fileIndexTotal->setText(QString::number(_results->resultsSize()));
 
-    _bboxDisplayer->clear();
-
-    vector<string> modelNames = _results->resultSet(_current).modelNames();
-    for(unsigned int i = 0; i < modelNames.size(); i++)
-        _bboxDisplayer->addCheckBox(modelNames[i]);
+    fetchBbox();
 
     changeImage();
 }
@@ -140,7 +136,7 @@ void ImageDisplayer::goToFile()
 {
    QString text = _fileChoose->text();
    unsigned int value = text.toUInt();
-   if(value >= 0 && value <= _results->resultsSize())
+   if(value >= 1 && value <= _results->resultsSize())
    {
        _current = value-1;
        changeImage();
@@ -153,6 +149,8 @@ void ImageDisplayer::changeImage()
     try
     {
         _imageWidget->loadImage(_current);
+        if(_locked)
+            unlock();
     }
     catch(const char* error)
     {
@@ -160,7 +158,32 @@ void ImageDisplayer::changeImage()
         box.setWindowTitle("Error happened");
         box.setText(error);
         box.exec();
+        lock();
     }
+}
+
+void ImageDisplayer::lock()
+{
+    _locked = true;
+    _slider->setEnabled(false);
+    _bboxDisplayer->clear();
+    _imageWidget->eraseBbox();
+}
+
+void ImageDisplayer::unlock()
+{
+    _locked = false;
+    _slider->setEnabled(true);
+
+    fetchBbox();
+}
+
+void ImageDisplayer::fetchBbox()
+{
+    _bboxDisplayer->clear();
+    vector<string> modelNames = _results->resultSet(0).modelNames();
+    for(unsigned int i = 0; i < modelNames.size(); i++)
+        _bboxDisplayer->addCheckBox(modelNames[i]);
 }
 
 //C:\Users\TenWing\Documents\Kingston\XML\XML_output\natalia_imagenet.xml

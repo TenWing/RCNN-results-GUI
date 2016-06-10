@@ -5,6 +5,7 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QPushButton>
+#include <QSlider>
 
 #include <resultset.h>
 #include <bboxdisplayer.h>
@@ -108,6 +109,11 @@ class ImageDisplayer : public QWidget
         QLabel* _sliderValue;
 
         /**
+         * @brief the slider for the threshold value
+         */
+        QSlider* _slider;
+
+        /**
          * @brief a button to go to a chosen file
          */
         QPushButton* _goTo;
@@ -118,9 +124,31 @@ class ImageDisplayer : public QWidget
         QLineEdit* _fileChoose;
 
         /**
+         * @brief indicates if this widget is locked
+         */
+        bool _locked;
+
+        //############# METHODS ############
+
+        /**
          * @brief updates the GUI to show the current image
          */
         void changeImage();
+
+        /**
+         * @brief locks the entire widget
+         */
+        void lock();
+
+        /**
+         * @brief unlock the entire widget
+         */
+        void unlock();
+
+        /**
+         * @brief fetches the results to set the right amount of Bbox
+         */
+        void fetchBbox();
 };
 
 #endif // IMAGEDISPLAYER_H

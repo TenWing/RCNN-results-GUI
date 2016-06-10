@@ -59,6 +59,7 @@ class BboxDisplayer : public QWidget
          * @brief the widget where the bboxes are drawn
          */
         ImageWidget* _imageWidget;
+
 };
 
 #endif // BBOXDISPLAYER_H
