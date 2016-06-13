@@ -57,6 +57,10 @@ ImageDisplayer::ImageDisplayer(QWidget *parent) :
     goToLayout->addWidget(_fileChoose);
     connect(_goTo, SIGNAL(clicked(bool)), this, SLOT(goToFile()));
 
+    _goTo->setEnabled(false);
+    _prevButton->setEnabled(false);
+    _nextButton->setEnabled(false);
+
     QHBoxLayout* buttonsLayout = new QHBoxLayout();
     QWidget* buttons = new QWidget(this);
     buttons->setLayout(buttonsLayout);
