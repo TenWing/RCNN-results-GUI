@@ -6,6 +6,8 @@
 #include <QSlider>
 #include <QLineEdit>
 #include <QMessageBox>
+#include <QApplication>
+#include <QDesktopWidget>
 
 #include <iostream>
 #include <vector>
@@ -20,13 +22,18 @@ ImageDisplayer::ImageDisplayer(QWidget *parent) :
     _prevButton(new QPushButton("<", this)), _sliderValue(new QLabel("0", this)),
     _slider(new QSlider(Qt::Horizontal ,this)),
     _goTo(new QPushButton("Go to file", this)), _fileChoose(new QLineEdit(this)),
-    _locked(false)
+    _locked(false), _fileName(new QLabel("", this))
 {
+    QRect rec = QApplication::desktop()->screenGeometry();
+    int height = rec.height();
+    int width = rec.width();
+
     QHBoxLayout* mainLayout = new QHBoxLayout();
     setLayout(mainLayout);
 
     QVBoxLayout* rightLayout = new QVBoxLayout();
     QWidget* rightWidget = new QWidget(this);
+    rightWidget->setMaximumSize(width/5, height/2);
     rightWidget->setLayout(rightLayout);
 
     QLabel* boxOptions = new QLabel("Display Bboxes", this);
@@ -79,7 +86,11 @@ ImageDisplayer::ImageDisplayer(QWidget *parent) :
     rightLayout->addWidget(goToWidget);
     rightLayout->addWidget(buttons);
 
-    mainLayout->addWidget(_imageWidget);
+    QWidget* leftWidget = new QWidget(this);
+    leftWidget->setLayout(new QVBoxLayout());
+    leftWidget->layout()->addWidget(_fileName);
+    leftWidget->layout()->addWidget(_imageWidget);
+    mainLayout->addWidget(leftWidget);
     mainLayout->addWidget(rightWidget);
 
     lock();
@@ -152,12 +163,14 @@ void ImageDisplayer::changeImage()
     _fileIndexCurrent->setText(QString::number(_current+1));
     try
     {
+        _fileName->setText(QString::fromStdString(_results->resultSet(_current).getFileName()));
         _imageWidget->loadImage(_current);
         if(_locked)
             unlock();
     }
     catch(const char* error)
     {
+        _fileName->setText("");
         QMessageBox box(this);
         box.setWindowTitle("Error happened");
         box.setText(error);

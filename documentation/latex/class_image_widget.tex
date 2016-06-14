@@ -34,7 +34,9 @@ void \hyperlink{class_image_widget_ae572ff8733d9ece83441a37e1b7a91ae}{erase\+Bbo
 
 \begin{DoxyCompactList}\small\item\em erases everything that has been drawn \end{DoxyCompactList}\item 
 void \hyperlink{class_image_widget_a6180527a08974bc832d10deccc9e3737}{set\+Threshold} (double threshold)
-\begin{DoxyCompactList}\small\item\em the new threshold value \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em the new threshold value \end{DoxyCompactList}\item 
+void \hyperlink{class_image_widget_a279ebc2e3aab9adc8a29f671078d6a5a}{resize\+Event} (Q\+Resize\+Event $\ast$event)
+\begin{DoxyCompactList}\small\item\em overrides the resize event to resize the picture \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -55,6 +57,22 @@ loads the image n°i in the results sets
 
 \begin{DoxyParams}{Parameters}
 {\em i} & the index \\
+\hline
+\end{DoxyParams}
+\index{Image\+Widget@{Image\+Widget}!resize\+Event@{resize\+Event}}
+\index{resize\+Event@{resize\+Event}!Image\+Widget@{Image\+Widget}}
+\subsubsection[{\texorpdfstring{resize\+Event(\+Q\+Resize\+Event $\ast$event)}{resizeEvent(QResizeEvent *event)}}]{\setlength{\rightskip}{0pt plus 5cm}void Image\+Widget\+::resize\+Event (
+\begin{DoxyParamCaption}
+\item[{Q\+Resize\+Event $\ast$}]{event}
+\end{DoxyParamCaption}
+)}\hypertarget{class_image_widget_a279ebc2e3aab9adc8a29f671078d6a5a}{}\label{class_image_widget_a279ebc2e3aab9adc8a29f671078d6a5a}
+
+
+overrides the resize event to resize the picture 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & event for qt resize \\
 \hline
 \end{DoxyParams}
 \index{Image\+Widget@{Image\+Widget}!set\+Model\+Names@{set\+Model\+Names}}

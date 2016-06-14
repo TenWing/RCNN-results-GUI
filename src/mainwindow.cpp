@@ -10,6 +10,8 @@
 #include <QPushButton>
 #include <QSpacerItem>
 #include <QFileDialog>
+#include <QApplication>
+#include <QDesktopWidget>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), _results(nullptr),
@@ -18,14 +20,20 @@ MainWindow::MainWindow(QWidget *parent)
       _browseFolder(new QPushButton("Browse folder location of the dataset", this)),
       _folder(new QLabel("No folder selected", this))
 {
-    setGeometry(100,100,800,600);
+    QRect rec = QApplication::desktop()->screenGeometry();
+    int height = rec.height();
+    int width = rec.width();
+
     setCentralWidget(new QWidget(this));
 
     QVBoxLayout* mainLayout = new QVBoxLayout();
     centralWidget()->setLayout(mainLayout);
 
     QWidget* topWidget = new QWidget();
+    topWidget->setMaximumHeight(height/5);
+
     QWidget* leftWidget = new QWidget();
+    leftWidget->setMaximumSize(width/5, height/5);
     QWidget* datasetWidget = new QWidget();
     QHBoxLayout* datasetNameLayout = new QHBoxLayout();
     QHBoxLayout* topLayout = new QHBoxLayout();

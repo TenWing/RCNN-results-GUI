@@ -11,6 +11,8 @@
 
 #include <QMessageBox>
 #include <QFileDialog>
+#include <QApplication>
+#include <QDesktopWidget>
 
 using namespace std;
 
@@ -21,6 +23,12 @@ ResultsAdder::ResultsAdder(ImageDisplayer* displayer, QWidget *parent) :
     _xmlLabel(new QLabel("No file selected", this)),
     _addResultsButton(new QPushButton("Add results",this))
 {
+    QRect rec = QApplication::desktop()->screenGeometry();
+    int height = rec.height();
+    int width = rec.width();
+    setMaximumHeight(height/5);
+    setMaximumWidth(width/3);
+
     QVBoxLayout* mainLayout = new QVBoxLayout();
     QHBoxLayout* middleLayout = new QHBoxLayout();
     QWidget* middleWidget = new QWidget(this);

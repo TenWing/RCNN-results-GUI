@@ -128,6 +128,11 @@ class ImageDisplayer : public QWidget
          */
         bool _locked;
 
+        /**
+         * @brief the fileName of the image displayed
+         */
+        QLabel* _fileName;
+
         //############# METHODS ############
 
         /**

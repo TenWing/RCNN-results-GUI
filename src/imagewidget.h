@@ -58,6 +58,12 @@ class ImageWidget : public QWidget
          */
         void setThreshold(double threshold);
 
+        /**
+         * @brief overrides the resize event to resize the picture
+         * @param event event for qt resize
+         */
+        void resizeEvent(QResizeEvent * event);
+
     signals:
 
     public slots:
@@ -90,19 +96,14 @@ class ImageWidget : public QWidget
         QImage _image;
 
         /**
+         * @brief the HD image where bboxes are drawn
+         */
+        QImage _drawn;
+
+        /**
          * @brief the label displaying the image
          */
         QLabel* _displayer;
-
-        /**
-         * @brief the layout
-         */
-        QVBoxLayout* _layout;
-
-        /**
-         * @brief the file name of th eimage displayed
-         */
-        QLabel* _fileName;
 };
 
 #endif // IMAGEWIDGET_H
